@@ -2,25 +2,25 @@
     <NuxtLayout name="default">
         <!-- Delete this and start building your app. Happy coding! -->
         <div class="h-dvh flex items-center justify-center">
-            <div class="flex flex-col items-center justify-center gap-y-4 w-full mx-auto md:w-1/3">
+            <div class="flex flex-col items-center justify-center gap-y-4 w-full mx-auto md:w-2/3">
                 <div class="size-12">
                     <AppLogo />
                 </div>
-                <h1 class="font-extrabold text-5xl text-dark-900 font-family-instrument italic dark:text-dark-50">v4.20
+                <h1 class="font-extrabold text-5xl text-dark-900 font-family-instrument italic dark:text-dark-50">v0.1
                 </h1>
                 <p class="font-normal text-base text-center text-dark-900/60 dark:text-dark-50/60">
-                    Opinionated Starter Template
+                    AI ICD Code Finder
                     <br>
-                    Minimal, Fast, and Developer-Friendly
+                    Write your medical summary below and get your ICD code
                 </p>
                 <div class="w-full flex items-center justify-center gap-2">
                     <AppSwitchMode />
                     <AppSwitchPrimaryColor />
                 </div>
-                <div class="flex flex-col items-center gap-y-4 w-full">
-                    <UInput v-model="name" label="Name" placeholder="Name" />
+                <div class="flex flex-col items-center gap-y-6 w-full px-5">
+                    <UTextarea :rows="10" v-model="name" label="Name" placeholder="13 yo boy diagnosed with appendicitis had underwent laparoscopic surgery. During stay he had transfused with packed red blood cell and electrolytes. We give prophylactic antibiotic too.." color="primary" variant="outline" size="xl" class="w-full"/>
                     <UButton @click="openToast" variant="solid" color="primary">
-                        Enter
+                        Give me the ICD Code
                     </UButton>
                 </div>
             </div>
