@@ -7,16 +7,17 @@
                     <AppLogo />
                 </div>
                 <h1 class="font-extrabold text-5xl text-dark-900 font-family-instrument italic dark:text-dark-50">
-                    About
+                    ICD Code Extractor
                 </h1>
                 <p class="font-normal text-base text-center text-dark-900/60 dark:text-dark-50/60">
                     Hey <span class="font-bold italic">{{ name }}</span>
                     <br>
                     <br>
-                    v4.20 is an opinionated starter template that is minimal, fast, and developer-friendly created by
+                    v0.1 is an opinionated user friendly medical coding app created by
+                    <br>
                     <ULink href="https://ecostudios.dev/" target="_blank" color="primary"
                         class="underline text-dark-950/80 dark:text-dark-50/80">
-                        Eco Development Studios
+                        Diaz Adi Pradana, MD, FIAPS.
                     </ULink>
                 </p>
                 <div class="flex flex-col items-center gap-y-4 w-full">
