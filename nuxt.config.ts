@@ -27,5 +27,5 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**'],
   },
-  experimental: {watcher: 'parcel'}
+  experimental: {watcher: 'parcel'},
 })

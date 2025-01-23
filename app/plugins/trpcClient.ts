@@ -1,24 +1,22 @@
 import { createTRPCNuxtClient, httpBatchLink } from 'trpc-nuxt/client'
-import type { AppRouter } from '~~/server/api/trpc/[trpc]'
-import superjson from 'superjson'
+import type { appRouter } from '~/server/trpc/routers'
 
 export default defineNuxtPlugin(() => {
   /**
    * createTRPCNuxtClient adds a `useQuery` composable
    * built on top of `useAsyncData`.
    */
-  const client = createTRPCNuxtClient<AppRouter>({
+  const trpcClient = createTRPCNuxtClient<appRouter>({
     links: [
       httpBatchLink({
         url: '/api/trpc',
       }),
-    ],
-    transformer: superjson
+    ]
   })
 
   return {
     provide: {
-      client,
+      trpcClient,
     },
   }
 })
