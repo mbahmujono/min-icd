@@ -3,10 +3,11 @@
     <div>
       <p>tRPC Test</p>
       {{ helloResp.data }}
+      this is {{ parsedData }} data
       <div v-if="parsedData">
         <h2>Diagnoses:</h2>
         <ul>
-          <li v-for="(diagnosis, index) in parsedData.diagnoses" :key="index">
+          <li v-for="(diagnosis, index) in parsedData" :key="index">
             <strong>Diagnosis:</strong> {{ diagnosis.diagnosis }}<br />
             <strong>Explanation:</strong> {{ diagnosis.explanation }}<br />
             <strong>ICD-10 Code:</strong> {{ diagnosis.icd10_code }} - {{ diagnosis.icd10_name }}<br />
@@ -44,23 +45,10 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue';
 
-// Define the expected response type
-interface GreetingResponse {
-  greeting: {
-    response: {
-      candidates: {
-        content: {
-          parts: { text: string }[];
-        };
-      }[];
-    };
-  };
-}
-
 const { $trpcClient } = useNuxtApp();
 const { hello } = $trpcClient;
 
-const helloResp = await hello.useQuery<GreetingResponse>({
+const helloResp = await hello.useQuery({
   name: "17 yo boy with paralytic ileus we give them probiotics",
 });
 
@@ -70,7 +58,7 @@ const parsedData = ref(null);
 if (helloResp.data) {
   try {
     parsedData.value = JSON.parse(
-      helloResp.data.value
+      helloResp.data?.text,
     );
   } catch (error) {
     console.error('Error parsing response:', error);
@@ -81,9 +69,17 @@ if (helloResp.data) {
 watchEffect(() => {
   if (helloResp.data) {
     try {
-      parsedData.value = JSON.parse(
-        helloResp.data.greeting.response.candidates[0].content.parts[0].text
-      );
+      // Parse the top-level response if it's a string
+      const greeting = typeof helloResp.data?.greeting === 'string'
+        ? JSON.parse(helloResp.data.text)
+        : helloResp.data?.text;
+
+      // Access and parse the nested text if it exists
+      const text =
+        greeting?.response?.candidates?.[0]?.content?.parts?.[0]?.text ?? '{}';
+
+      // Parse the nested JSON text
+      parsedData.value = JSON.parse(text);
     } catch (error) {
       console.error('Error parsing response:', error);
     }
