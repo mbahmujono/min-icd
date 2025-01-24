@@ -1,12 +1,11 @@
-import { GoogleGenerativeAI } from "@google/generative-ai"
-import { string } from "zod";
+import { GoogleGenerativeAI, type GenerationConfig } from "@google/generative-ai"
 
 export namespace ICDService {
     export async function generateICDFromPrompt(medicalSummary:string) {
-        const apiKey = process.env.GEMINI_API_KEY;
+        const apiKey:string = process.env.GEMINI_API_KEY ?? '';
         const genAI = new GoogleGenerativeAI(apiKey);
 
-        const generationConfig = {
+        const generationConfig: GenerationConfig = {
             temperature: 1,
             topP: 0.95,
             topK: 40,
@@ -132,7 +131,7 @@ export namespace ICDService {
                 "diagnoses",
                 "procedures"
               ]
-            },
+          }
           };
         
         const model = genAI.getGenerativeModel({
