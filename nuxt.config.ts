@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  build: {
+    transpile: ['trpc-nuxt']
+  },
   app: {
     head: {
       meta: [
@@ -24,5 +27,5 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**'],
   },
-  experimental: {watcher: 'parcel'}
+  experimental: {watcher: 'parcel'},
 })
