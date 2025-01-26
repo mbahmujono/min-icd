@@ -8,10 +8,10 @@ RUN curl -fsSL https://bun.sh/install | bash && \
     bun --version
 
 # Set working directory
-WORKDIR / /
+WORKDIR /app
 
 # Copy package manager lock files and package.json
-COPY bun.lockb package.json
+COPY bun.lockb package.json ./
 
 # Install dependencies with Bun
 RUN export BUN_INSTALL="/root/.bun" && \
@@ -19,10 +19,12 @@ RUN export BUN_INSTALL="/root/.bun" && \
     bun install
 
 # Copy the rest of the application files
-COPY ./ /
+COPY . ./
 
 # Build the Nuxt app
-RUN bun run build
+RUN export BUN_INSTALL="/root/.bun" && \
+    export PATH="$BUN_INSTALL/bin:$PATH" && \
+    bun run build
 
 # Expose the port Nuxt will run on
 EXPOSE 3000
