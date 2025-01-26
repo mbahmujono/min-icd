@@ -51,7 +51,7 @@
                     <br>
                     v0.1 is an opinionated user friendly medical coding app created by
                     <br>
-                    <ULink href="https://ecostudios.dev/" target="_blank" color="primary"
+                    <ULink href="https://matter.co.id/" target="_blank" color="primary"
                         class="underline text-dark-950/80 dark:text-dark-50/80">
                         Diaz Adi Pradana, MD, FIAPS.
                     </ULink>

@@ -38,8 +38,8 @@ const toast = useToast();
 
 function openToast() {
     toast.add({
-        title: 'Hey!',
-        description: 'Hello! You just clicked the button!',
+        title: 'Medical Summary is being processed',
+        description: 'Hello! You just clicked the button! Wait for awhile',
         color: 'success'
     })
     navigateTo('/about')
