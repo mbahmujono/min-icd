@@ -30,6 +30,7 @@ Minimalistic Medical Summary to ICD Code Finder using GEMINI AI - Structured Res
 
 - Node.js (>= 18.x)
 - bun, npm or yarn
+- Gemini AI API key
 
 ### Installation
 
@@ -63,6 +64,10 @@ yarn dev
 ```
 
 The application will be available at `http://localhost:3000`.
+
+### Gemini AI API Key
+
+please change the `.env.example` file with your GEMINI API Key, after add the API change it to `.env`
 
 ### Build
 
