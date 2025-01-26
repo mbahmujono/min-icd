@@ -10,11 +10,11 @@
                     ICD Code Extractor
                 </h1>
                 <p class="font-normal text-base text-left text-dark-900/60 dark:text-dark-50/60">
-                    Hey <span class="font-bold italic">{{ name }}</span>
+                    <strong>Case:</strong> <span class="font-bold italic">{{ name }}</span>
                     <br>
                     <br>
                     <div v-if="parsedData">
-                        <h2>Diagnoses:</h2>
+                        <h2><strong>Diagnoses:</strong></h2>
                         <ul>
                         <li v-for="(diagnosis, index) in parsedData.diagnoses" :key="index">
                             <strong>Diagnosis:</strong> {{ diagnosis.diagnosis }}<br />
@@ -29,6 +29,7 @@
                         </li>
                         </ul>
 
+                        <br><br>
                         <h2>Procedures:</h2>
                         <ul>
                         <li v-for="(procedure, index) in parsedData.procedures" :key="index">
@@ -86,17 +87,17 @@ const parsedData = JSON.parse(helloResp.data.value.text);
 
 
 useSeoMeta({
-    title: "v4.20 | Your About Title",
-    ogTitle: "v4.20 | Your About Title",
-    description: "Opinionated Starter Template Minimal, Fast, and Developer-Friendly",
-    ogDescription: "Opinionated Starter Template Minimal, Fast, and Developer-Friendly",
+    title: "v0.1 | Alat Pencari Kode ICD",
+    ogTitle: "Alat Pencarian Kode ICD Otomatis Dengan AI",
+    description: "Mengubah Ringkasan Medis Menjadi Kode ICD dengan AI",
+    ogDescription: "Mencari Kode ICD dari Ringkasan Medis",
     ogImage: "/default-og-image.jpg",
     twitterCard: "summary_large_image",
-    ogUrl: 'https://www.yourproject.com/',
+    ogUrl: 'https://www.kodeicd.com/',
     twitterImage: "/default-og-image.jpg",
     twitterCard: "summary_large_image",
-    twitterTitle: "v4.20 | Your About Title",
-    twitterDescription: "Opinionated Starter Template Minimal, Fast, and Developer-Friendly",
+    twitterTitle: "v0.1 | Pencarian Kode ICD",
+    twitterDescription: "Alat Pencarian Kode ICD Otomatis untuk klaim BPJS",
     ogImageWidth: 1200,
     ogImageHeight: 630,
 });
