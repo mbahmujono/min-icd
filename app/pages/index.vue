@@ -47,17 +47,17 @@ function openToast() {
 /* // */
 
 useSeoMeta({
-    title: "v4.20 | Your Project Title",
-    ogTitle: "v4.20 | Your Project Title",
-    description: "Opinionated Starter Template Minimal, Fast, and Developer-Friendly",
-    ogDescription: "Opinionated Starter Template Minimal, Fast, and Developer-Friendly",
+    title: "v0.1 | Alat Pencari Kode ICD",
+    ogTitle: "Alat Pencarian Kode ICD Otomatis Dengan AI",
+    description: "Mengubah Ringkasan Medis Menjadi Kode ICD dengan AI",
+    ogDescription: "Mencari Kode ICD dari Ringkasan Medis",
     ogImage: "/default-og-image.jpg",
     twitterCard: "summary_large_image",
-    ogUrl: 'https://www.yourproject.com/',
+    ogUrl: 'https://www.kodeicd.com/',
     twitterImage: "/default-og-image.jpg",
     twitterCard: "summary_large_image",
-    twitterTitle: "v4.20 | Your Project Title",
-    twitterDescription: "Opinionated Starter Template Minimal, Fast, and Developer-Friendly",
+    twitterTitle: "v0.1 | Pencarian Kode ICD",
+    twitterDescription: "Alat Pencarian Kode ICD Otomatis untuk klaim BPJS",
     ogImageWidth: 1200,
     ogImageHeight: 630,
 });

@@ -1,6 +1,6 @@
-# v4.20: The Ultimate Opinionated Nuxt 3 Starter Template
+# Medical Summary to ICD Code Generator
 
-Minimal, blazing fast, and designed with developers in mind, v4.20 is your go-to starting point for modern web projects.
+Minimalistic Medical Summary to ICD Code Finder using GEMINI AI - Structured Response
 
 ## Built on cutting-edge technologies:
 
@@ -9,8 +9,9 @@ Minimal, blazing fast, and designed with developers in mind, v4.20 is your go-to
 - Pinia for state management simplicity.
 - Tailwind CSS v4 for responsive and modern design.
 - Fully compatible with the Nuxt v4 folder structure, this template ensures you're ready for the future of web development.
-
-Get started today with v4.20 and build faster, smarter, and better!
+- v4.20 BoilerPlate for Nuxt Starter
+- Gemini AI SDK
+- tRPC for typesafe API response
 
 ## Features
 
@@ -21,26 +22,29 @@ Get started today with v4.20 and build faster, smarter, and better!
 - Primary color switcher
 - SEO meta tags
 - Responsive design
+- Based on v4.20 Minimalistic Boilerplate for Nuxt App
 
 ## Project Setup
 
 ### Prerequisites
 
-- Node.js (>= 14.x)
-- npm or yarn
+- Node.js (>= 18.x)
+- bun, npm or yarn
 
 ### Installation
 
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/{username}/v420.git
-    cd v420
+    git clone https://github.com/mbahmujono/min-icd.git
+    cd min-icd
     ```
 
 2. Install dependencies:
 
     ```sh
+    bun install
+    # or
     npm install
     # or
     yarn install
@@ -51,6 +55,8 @@ Get started today with v4.20 and build faster, smarter, and better!
 Start the development server:
 
 ```sh
+bun run dev
+# or
 npm run dev
 # or
 yarn dev
@@ -63,6 +69,8 @@ The application will be available at `http://localhost:3000`.
 To build the project for production:
 
 ```sh
+bun run build
+# or
 npm run build
 # or
 yarn build
@@ -81,7 +89,10 @@ After building the project, you can deploy the `dist` directory to your preferre
   - `pages/`: Page components.
   - `stores/`: Pinia stores.
   - `assets/css/`: CSS files.
+  - `lib/services/`: Nuxt service with Gemini SDK calling function.
+  - `plugins/`: tRPC client.
 - `public/`: Static assets.
+- `server/`: tRPC routes and API setting.
 
 ## Usage
 
@@ -110,7 +121,7 @@ if (import.meta.hot) {
 ### Pages
 
 - `index.vue`: The main landing page.
-- `about.vue`: The about page.
+- `about.vue`: The about page and AI response.
 
 ### Layouts
 
