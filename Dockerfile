@@ -3,9 +3,8 @@ FROM node:18-bullseye
 
 # Install Bun
 RUN curl -fsSL https://bun.sh/install | bash && \
-    export BUN_INSTALL="/root/.bun" && \
-    export PATH="$BUN_INSTALL/bin:$PATH" && \
-    bun --version
+    echo 'export PATH="/root/.bun/bin:$PATH"' >> ~/.bashrc && \
+    /bin/bash -c "source ~/.bashrc && bun --version"
 
 # Set working directory
 WORKDIR /app
@@ -13,21 +12,17 @@ WORKDIR /app
 # Copy package manager lock files and package.json
 COPY bun.lockb package.json ./
 
-# Install dependencies with Bun
-RUN export BUN_INSTALL="/root/.bun" && \
-    export PATH="$BUN_INSTALL/bin:$PATH" && \
-    bun install
+# Install production dependencies with Bun
+RUN /bin/bash -c "source ~/.bashrc && bun install --production"
 
 # Copy the rest of the application files
 COPY . ./
 
-# Build the Nuxt app
-RUN export BUN_INSTALL="/root/.bun" && \
-    export PATH="$BUN_INSTALL/bin:$PATH" && \
-    bun run build
+# Build the Nuxt app for production
+RUN /bin/bash -c "source ~/.bashrc && bun run build"
 
-# Expose the port Nuxt will run on
-EXPOSE 3000
+# Expose the production port
+EXPOSE 8080
 
-# Start the application
-CMD ["bun", "run", "start"]
+# Start the application in production mode
+CMD ["/bin/bash", "-c", "source ~/.bashrc && bun run start"]
