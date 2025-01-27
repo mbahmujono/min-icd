@@ -95,7 +95,6 @@ useSeoMeta({
     twitterCard: "summary_large_image",
     ogUrl: 'https://www.kodeicd.com/',
     twitterImage: "/default-og-image.jpg",
-    twitterCard: "summary_large_image",
     twitterTitle: "v0.1 | Pencarian Kode ICD",
     twitterDescription: "Alat Pencarian Kode ICD Otomatis untuk klaim BPJS",
     ogImageWidth: 1200,
