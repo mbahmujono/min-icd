@@ -23,9 +23,12 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   compatibilityDate: '2024-11-01',
-  modules: ['@nuxt/ui', '@pinia/nuxt', '@nuxtjs/sitemap'],
+  modules: ['@nuxt/ui', '@pinia/nuxt', '@nuxtjs/sitemap', 'nuxt-gtag'],
   pinia: {
     storesDirs: ['./stores/**'],
   },
   experimental: {watcher: 'parcel'},
+  gtag: {
+    id: 'G-9G0SESR7VD'
+  }
 })
