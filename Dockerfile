@@ -8,7 +8,7 @@ WORKDIR /app
 COPY bun.lockb package.json ./
 
 # Install production dependencies using npm or yarn
-RUN npm install --production 
+RUN npm install
 
 # Copy the rest of the application files
 COPY . .
